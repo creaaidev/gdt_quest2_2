@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://c1tffj58kv85o"]
+
+[ext_resource type="Texture2D" uid="uid://1i72c1fpmish" path="res://assets/background.png" id="1_vymeo"]
+[ext_resource type="PackedScene" uid="uid://belqx355uop81" path="res://Player.tscn" id="2_tqncq"]
+[ext_resource type="PackedScene" uid="uid://dckgfdf5e0x3q" path="res://thunder.tscn" id="3_u0mix"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_avhnf"]
+size = Vector2(1168, 117)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bqjb2"]
+size = Vector2(95.5, 126.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n04mn"]
+size = Vector2(1219, 74)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_saegt"]
+size = Vector2(98, 147)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Node" type="Node" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="Node"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_vymeo")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(572, 589.5)
+shape = SubResource("RectangleShape2D_avhnf")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-49, 483.25)
+shape = SubResource("RectangleShape2D_bqjb2")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(567, 324)
+shape = SubResource("RectangleShape2D_n04mn")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1200, 475)
+shape = SubResource("RectangleShape2D_saegt")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_tqncq")]
+
+[node name="Area2D" parent="." instance=ExtResource("3_u0mix")]
+
+[connection signal="body_entered" from="Area2D" to="CharacterBody2D" method="_on_area_2d_body_entered"]
