@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://c1tffj58kv85o"]
+[gd_scene load_steps=9 format=3 uid="uid://c23a3ljx8eipg"]
 
+[ext_resource type="Script" path="res://node.gd" id="1_owdug"]
 [ext_resource type="Texture2D" uid="uid://1i72c1fpmish" path="res://assets/background.png" id="1_vymeo"]
 [ext_resource type="PackedScene" uid="uid://belqx355uop81" path="res://Player.tscn" id="2_tqncq"]
 [ext_resource type="PackedScene" uid="uid://dckgfdf5e0x3q" path="res://thunder.tscn" id="3_u0mix"]
@@ -17,6 +18,7 @@ size = Vector2(1219, 74)
 size = Vector2(98, 147)
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_owdug")
 
 [node name="Node" type="Node" parent="."]
 
@@ -50,4 +52,20 @@ shape = SubResource("RectangleShape2D_saegt")
 
 [node name="Area2D" parent="." instance=ExtResource("3_u0mix")]
 
+[node name="Area2D2" parent="." instance=ExtResource("3_u0mix")]
+position = Vector2(511, 404)
+
+[node name="Area2D3" parent="." instance=ExtResource("3_u0mix")]
+position = Vector2(711, 403)
+
+[node name="Area2D4" parent="." instance=ExtResource("3_u0mix")]
+position = Vector2(914, 403)
+
+[node name="Area2D5" parent="." instance=ExtResource("3_u0mix")]
+position = Vector2(1117, 403)
+
 [connection signal="body_entered" from="Area2D" to="CharacterBody2D" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Area2D2" to="CharacterBody2D" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Area2D3" to="CharacterBody2D" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Area2D4" to="CharacterBody2D" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Area2D5" to="CharacterBody2D" method="_on_area_2d_body_entered"]
